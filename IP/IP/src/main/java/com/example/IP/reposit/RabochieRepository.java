@@ -1,7 +1,6 @@
-package com.example.School.reposit;
+package com.example.IP.reposit;
 
-import com.example.School.models.Rabochie;
-import com.example.School.models.Teachers;
+import com.example.IP.models.Rabochie;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Смежные таблицы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        form {
+        }
+    </style>
 </head>
 <body>
-$END$
+<form
+        style="background-color: cadetblue">
+    <h1>Ссылки в магазинах</h1>
+</form>
+
+<form action="/manytomany" method="post">
+    <select name="ssilka" style="margin-bottom: 10px; margin-left: 10px;">
+        <div th:each="el : ${electro}">
+            <option th:text="${el.ssilka}"></option>
+        </div>
+    </select><br>
+
+    <select name="name" style="margin-bottom: 10px; margin-left: 10px;">
+        <div th:each="el : ${magazin}">
+            <option th:text="${el.name}"></option>
+        </div>
+    </select><br>
+
+    <button type="submit" class="btn btn-success" style="margin-left: 10px">Добавить</button>
+</form>
+
+<a href="http://127.0.0.1/openserver/phpmyadmin/index.php?route=/sql&db=ip&table=electro_magazin&pos=0" target="_blank">Показать
+    таблицу многие ко многим</a>
+
+<h1>Ссылки</h1>
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Список ссылок</th>
+    </tr>
+    <div th:each="el : ${electro}">
+        <tr>
+            <td th:text="${el.id}"></td>
+            <td th:text="${el.ssilka}"></td>
+        </tr>
+    </div>
+</table>
+
+<a href="electro/add" style="text-decoration: none">Добавить Ссылку</a><br><br>
+
+<h1>Магазин</h1>
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Название магазина</th>
+    </tr>
+    <div th:each="el : ${magazin}">
+        <tr>
+            <td th:text="${el.id}"></td>
+            <td th:text="${el.name}"></td>
+        </tr>
+    </div>
+</table>
+<a href="magazin/add" style="text-decoration: none">Добавить Магазин</a>
+
 </body>
 </html>

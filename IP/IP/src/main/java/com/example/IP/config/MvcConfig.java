@@ -1,4 +1,4 @@
-package com.example.project7.config;
+package com.example.IP.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

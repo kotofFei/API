@@ -1,12 +1,11 @@
-package com.example.School.reposit;
+package com.example.IP.reposit;
 
-import com.example.School.models.Predmet;
-
+import com.example.IP.models.Books;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface PredmetRepository  extends CrudRepository<Predmet, Long>{
-    List<Predmet> findByName(String Name);
-    List<Predmet> findByNameContaining(String Name);
+public interface BooksRepository extends CrudRepository<Books, Long>{
+    List<Books> findByName(String Name);
+    List<Books> findByNameContaining(String Name);
 }

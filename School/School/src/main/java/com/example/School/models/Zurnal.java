@@ -1,18 +1,24 @@
-package com.example.BDPractice.models;
+package com.example.School.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Entity
 public class Zurnal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Float date;
-    private Float Mark;
-    private String Name;
+    @NotEmpty(message = "Поле не может быть пустым!")
+    private String Mark;
+    @NotEmpty(message = "Поле не может быть пустым!")
+    private String name;
+    @NotEmpty(message = "Поле не может быть пустым!")
+    private String date;
 
     public Long getId() {
         return id;
@@ -22,35 +28,36 @@ public class Zurnal {
         this.id = id;
     }
 
-    public Float getDate() {
-        return date;
-    }
-
-    public void setDate(Float date) {
-        this.date = date;
-    }
-
-    public Float getMark() {
+    public String getMark() {
         return Mark;
     }
 
-    public void setMark(Float Mark) {
+    public void setMark(String Mark) {
         this.Mark = Mark;
     }
 
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String Name) {
-        this.Name = Name;
+        this.name = Name;
     }
 
-    public Zurnal(Float date,Float Mark, String Name) {
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
         this.date = date;
+    }
+
+    public Zurnal(String Mark,String Name, String date) {
         this.Mark = Mark;
-        this.Name = Name;
+        this.name = Name;
+        this.date = date;
+
     }
 
     public Zurnal() {

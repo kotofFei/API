@@ -1,9 +1,8 @@
-package com.example.project7.models;
+package com.example.IP.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Collection;
 
 @Entity
@@ -19,5 +18,5 @@ public class Post {
     private Integer salary;
 
     @OneToMany(mappedBy = "post", fetch = FetchType.EAGER)
-    private Collection<Employee> post;
+    private Collection<com.example.IP.models.Employee> post;
 }

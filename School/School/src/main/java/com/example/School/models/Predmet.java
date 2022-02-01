@@ -1,18 +1,25 @@
-package com.example.BDPractice.models;
+package com.example.School.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Predmet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     private Long id;
-    private Float hours;
-    private Float teachersCount;
-    private String Name;
+    @NotEmpty(message = "Поле не может быть пустым!")
+    private String hours;
+    @NotEmpty(message = "Поле не может быть пустым!")
+    private String teachersCount;
+    @NotEmpty(message = "Поле не может быть пустым!")
+    private String name;
 
     public Long getId() {
         return id;
@@ -22,35 +29,35 @@ public class Predmet {
         this.id = id;
     }
 
-    public Float getHours() {
+    public String getHours() {
         return hours;
     }
 
-    public void setHours(Float curs) {
+    public void setHours(String curs) {
         this.hours = curs;
     }
 
-    public Float getTeachersCount() {
+    public String getTeachersCount() {
         return teachersCount;
     }
 
-    public void setTeachersCount(Float teachersCount) {
+    public void setTeachersCount(String teachersCount) {
         this.teachersCount = teachersCount;
     }
 
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Predmet(Float hours,Float teachersCount, String Name) {
+    public Predmet(String hours,String teachersCount, String name) {
         this.hours = hours;
         this.teachersCount = teachersCount;
-        this.Name = Name;
+        this.name = name;
     }
 
     public Predmet() {

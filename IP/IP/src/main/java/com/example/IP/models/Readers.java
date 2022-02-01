@@ -1,19 +1,18 @@
-package com.example.School.models;
+package com.example.IP.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Entity
-public class Students {
+public class Readers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty(message = "Поле не должно быть пустым!")
-    private String curs;
+    private String age;
     @NotEmpty(message = "Поле не должно быть пустым!")
     private String FIO;
 
@@ -25,12 +24,12 @@ public class Students {
         this.id = id;
     }
 
-    public String getCurs() {
-        return curs;
+    public String getAge() {
+        return age;
     }
 
-    public void setCurs(String curs) {
-        this.curs = curs;
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getFIO() {
@@ -41,12 +40,12 @@ public class Students {
         this.FIO = FIO;
     }
 
-    public Students(String curs, String FIO) {
-        this.curs = curs;
+    public Readers(String age, String FIO) {
+        this.age = age;
         this.FIO = FIO;
     }
 
-    public Students() {
+    public Readers() {
     }
 }
 

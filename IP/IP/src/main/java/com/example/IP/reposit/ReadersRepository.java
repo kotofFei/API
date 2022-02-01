@@ -1,13 +1,13 @@
-package com.example.School.reposit;
+package com.example.IP.reposit;
 
-import com.example.School.models.Students;
+import com.example.IP.models.Readers;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface StudentsRepository extends CrudRepository<Students, Long> {
-    List<Students> findByCurs(String Curs);
-    List<Students> findByFIO(String FIO);
-    List<Students> findByCursContaining(String Curs);
+public interface ReadersRepository extends CrudRepository<Readers, Long> {
+    List<Readers> findByAge(String Age);
+    List<Readers> findByFIO(String FIO);
+    List<Readers> findByAgeContaining(String Age);
 }
 

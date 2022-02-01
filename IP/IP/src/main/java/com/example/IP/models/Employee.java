@@ -1,4 +1,4 @@
-package com.example.project7.models;
+package com.example.IP.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

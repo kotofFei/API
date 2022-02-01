@@ -1,4 +1,4 @@
-package com.example.project7.models;
+package com.example.IP.models;
 
 
 import javax.persistence.*;
@@ -15,10 +15,10 @@ public class User {
     private String password;
     private boolean active;
 
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @ElementCollection(targetClass = com.example.IP.models.Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
-    private Set<Role> roles;
+    private Set<com.example.IP.models.Role> roles;
 
     public User() {
 
@@ -56,15 +56,15 @@ public class User {
         this.active = active;
     }
 
-    public Set<Role> getRoles() {
+    public Set<com.example.IP.models.Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(Set<com.example.IP.models.Role> roles) {
         this.roles = roles;
     }
 
-    public User(String username, String password, boolean active, Set<Role> roles) {
+    public User(String username, String password, boolean active, Set<com.example.IP.models.Role> roles) {
         this.username = username;
         this.password = password;
         this.active = active;

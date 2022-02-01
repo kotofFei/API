@@ -7,21 +7,21 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Редактирование предметов</h2>
-<div th:each="el : ${predmetEdit}">
-    <form method="post" class="form-inline" th:object="${predmet}">
+<h2>Редактирование книг</h2>
+<div th:each="el : ${bookEdit}">
+    <form method="post" class="form-inline" th:object="${books}">
         <div class="form-group mx-sm-3 mb-2">
-            <label class="sr-only">Зарплата</label>
-            <div th:if="${#fields.hasErrors('hours')}" th:errors="*{hours}"></div>
-            <input type="text" th:value="${el.hours}" name="hours" placeholder="Введите часы на предмет" class="form-control">
+            <label class="sr-only">Автор</label>
+            <div th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
+            <input type="text" th:value="${el.author}" name="author" placeholder="Введите автора" class="form-control">
 
-            <label class="sr-only">Количество учителей на предмет</label>
-            <div th:if="${#fields.hasErrors('teachersCount')}" th:errors="*{teachersCount}"></div>
-            <input type="text" th:value="${el.teachersCount}" name="teachersCount" placeholder="Введите количество учителей на предмет" class="form-control">
+            <label class="sr-only">Количество томов</label>
+            <div th:if="${#fields.hasErrors('toms')}" th:errors="*{toms}"></div>
+            <input type="text" th:value="${el.toms}" name="toms" placeholder="Введите количество томов" class="form-control">
 
-            <label class="sr-only">Название предмета</label>
+            <label class="sr-only">Название ниги</label>
             <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
-            <input type="text" th:value="${el.name}" name="name" placeholder="Введите название предмета" class="form-control">
+            <input type="text" th:value="${el.name}" name="name" placeholder="Введите название книги" class="form-control">
 
             <div th:if="${#fields.hasErrors('global')}">
                 <small th:each="err : ${#fields.errors('global')}" th:text="${err}"></small>

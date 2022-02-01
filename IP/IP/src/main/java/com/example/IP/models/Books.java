@@ -1,23 +1,22 @@
-package com.example.School.models;
+package com.example.IP.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Entity
-public class Predmet {
+public class Books {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
 
     private Long id;
     @NotEmpty(message = "Поле не может быть пустым!")
-    private String hours;
+    private String author;
     @NotEmpty(message = "Поле не может быть пустым!")
-    private String teachersCount;
+    private String toms;
     @NotEmpty(message = "Поле не может быть пустым!")
     private String name;
 
@@ -29,20 +28,20 @@ public class Predmet {
         this.id = id;
     }
 
-    public String getHours() {
-        return hours;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setHours(String curs) {
-        this.hours = curs;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getTeachersCount() {
-        return teachersCount;
+    public String getToms() {
+        return toms;
     }
 
-    public void setTeachersCount(String teachersCount) {
-        this.teachersCount = teachersCount;
+    public void setToms(String toms) {
+        this.toms = toms;
     }
 
 
@@ -54,12 +53,12 @@ public class Predmet {
         this.name = name;
     }
 
-    public Predmet(String hours,String teachersCount, String name) {
-        this.hours = hours;
-        this.teachersCount = teachersCount;
+    public Books(String author, String toms, String name) {
+        this.author = author;
+        this.toms = toms;
         this.name = name;
     }
 
-    public Predmet() {
+    public Books() {
     }
 }

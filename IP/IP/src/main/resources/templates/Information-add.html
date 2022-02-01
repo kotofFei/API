@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Добавить информацию</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-$END$
+<h1>Добавить информацию</h1>
+<form action="/information/add" method="post" th:object="${information}">
+
+    <div class="form-group mx-sm-3 mb-2">
+        <div th:if="${#fields.hasErrors('statistic')}" th:errors="*{statistic}" style="color: red"></div>
+        <input th:field="*{statistic}" class="form-control" type="number" name="statistic" placeholder="Введите статистику чтения книг"> <br>
+        <div th:if="${#fields.hasErrors('contact')}" th:errors="*{contact}" style="color: red"></div>
+        <input th:field="*{contact}" class="form-control" type="text" name="contact" placeholder="Введите контактную информацию библиотеки"> <br>
+        <div th:if="${#fields.hasErrors('hoursOfWork')}" th:errors="*{hoursOfWork}" style="color: red"></div>
+        <input th:field="*{hoursOfWork}" class="form-control" type="text" name="hoursOfWork" placeholder="Введите часы работы библиотеки"> <br>
+
+    </div>
+    <div th:if="${#fields.hasErrors('global')}" style="color: red">
+        <small th:each="err : ${#fields.errors('global')}" th:text="${err}"></small>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-2">Добавить информацию</button>
+    </div>
+</form>
 </body>
 </html>

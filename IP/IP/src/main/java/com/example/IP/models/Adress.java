@@ -8,12 +8,12 @@ import javax.validation.constraints.NotEmpty;
 
 
 @Entity
-public class Adr {
+public class Adress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty(message = "Поле не должно быть пустым!")
-    private String ul;
+    private String ulica;
     @NotEmpty(message = "Поле не должно быть пустым!")
     private String town;
 
@@ -25,12 +25,12 @@ public class Adr {
         this.id = id;
     }
 
-    public String getAdress() {
-        return ul;
+    public String getUlica() {
+        return ulica;
     }
 
-    public void setAdress(String ul) {
-        this.ul = ul;
+    public void setUlica(String ulica) {
+        this.ulica = ulica;
     }
 
     public String getTown() {
@@ -42,12 +42,12 @@ public class Adr {
     }
 
 
-    public Adr(String ul, String Town) {
-        this.ul = ul;
+    public Adress(String ulica, String Town) {
+        this.ulica = ulica;
         this.town = Town;
     }
 
-    public Adr() {
+    public Adress() {
     }
 }
 

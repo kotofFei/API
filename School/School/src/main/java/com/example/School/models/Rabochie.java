@@ -1,17 +1,24 @@
-package com.example.BDPractice.models;
+package com.example.School.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Entity
 public class Rabochie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
-    private Float zp;
-    private String Name;
+    @NotEmpty(message = "Поле не должно быть пустым!")
+    private String zp;
+    @NotEmpty(message = "Поле не должно быть пустым!")
+    private String name;
+    @NotEmpty(message = "Поле не должно быть пустым!")
     private String role;
 
     public Long getId() {
@@ -22,20 +29,20 @@ public class Rabochie {
         this.id = id;
     }
 
-    public Float getZp() {
+    public String getZp() {
         return zp;
     }
 
-    public void setZp(Float zp) {
+    public void setZp(String zp) {
         this.zp = zp;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
@@ -47,10 +54,10 @@ public class Rabochie {
         this.role = role;
     }
 
-    public Rabochie(Float date,String role, String Name) {
+    public Rabochie(String zp,String role, String name) {
         this.zp = zp;
         this.role = role;
-        this.Name = Name;
+        this.name = name;
     }
 
     public Rabochie() {

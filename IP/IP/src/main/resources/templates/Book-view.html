@@ -2,38 +2,44 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Предмет</title>
+    <title>Книга</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        form {
+        }
+    </style>
 </head>
 <body>
 
-
-<h1>Предмет</h1>
+<form
+        style="background-color: cadetblue">
+<h1>Книга</h1>
+</form>
 <table class="table table-striped">
     <p>Примерный поиск</p>
-    <form method="post" action="/predmet/result">
+    <form method="post" action="/book/result">
         <input type="text" name="Name">
         <button type="submit">Найти</button>
     </form>
     <tr>
         <th>ID</th>
-        <th>Часы на предмет</th>
-        <th>Количество учителей на предмет</th>
+        <th>Автор</th>
+        <th>Количество томов</th>
         <th>Название</th>
     </tr>
-    <div th:each="el : ${predmet}">
+    <div th:each="el : ${books}">
         <tr>
             <td th:text="${el.id}"></td>
-            <td th:text="${el.hours}"></td>
-            <td th:text="${el.teachersCount}"></td>
-            <td><a th:href="'/predmet/' + ${el.id} + '/detail'" th:text="${el.name}"></a></td>
+            <td th:text="${el.author}"></td>
+            <td th:text="${el.toms}"></td>
+            <td><a th:href="'/book/' + ${el.id} + '/detail'" th:text="${el.name}"></a></td>
             <td>
-                <a th:href="'/predmet/' + ${el.id}+ '/edit'" class="a-pills">
+                <a th:href="'/book/' + ${el.id}+ '/edit'" class="a-pills">
                     <button type="button" class="btn btn-outline-primary">Изменить</button>
                 </a>
             </td>
             <td>
-                <a th:href="'/predmet/' + ${el.id} + '/remove'" class="a-pills">
+                <a th:href="'/book/' + ${el.id} + '/remove'" class="a-pills">
                     <button type="button" class="btn btn-outline-danger">Удалить</button>
                 </a>
             </td>
@@ -41,7 +47,7 @@
     </div>
 </table>
 
-<a href="predmet/add" style="text-decoration: none">Добавить предмет</a>
+<a href="book/add" style="text-decoration: none">Добавить книгу</a>
 
 </body>
 </html>

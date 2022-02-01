@@ -7,13 +7,13 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Редактирование Учеников</h2>
-<div th:each="el : ${studentEdit}">
-    <form method="post" class="form-inline" th:object="${students}">
+<h2>Редактирование Читателей</h2>
+<div th:each="el : ${readerEdit}">
+    <form method="post" class="form-inline" th:object="${readers}">
         <div class="form-group mx-sm-3 mb-2">
-            <label class="sr-only">Курс</label>
-            <div th:if="${#fields.hasErrors('curs')}" th:errors="*{curs}"></div>
-            <input type="text" th:value="${el.curs}" name="curs" placeholder="Введите курс" class="form-control">
+            <label class="sr-only">Возраст</label>
+            <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+            <input type="text" th:value="${el.age}" name="age" placeholder="Введите Возраст" class="form-control">
 
 
             <label class="sr-only">ФИО</label>

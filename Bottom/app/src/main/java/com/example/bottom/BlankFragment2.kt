@@ -1,4 +1,4 @@
-package ru.konder.myapplicationbottom
+package com.example.bottom
 
 import android.graphics.Bitmap
 import android.os.Bundle
