@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить сотрудника</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<h1>Добавить Сотрудника</h1>
+<form action="/rabochies/add" method="post" th:object="${rabochie}">
+
+    <div class="form-group mx-sm-3 mb-2">
+        <div th:if="${#fields.hasErrors('zp')}" th:errors="*{zp}" style="color: red"></div>
+        <input th:field="*{zp}" class="form-control" type="number" name="hours" placeholder="Введите зарплату"> <br>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></div>
+        <input th:field="*{name}" class="form-control" type="text" name="FIO" placeholder="Введите ФИО"> <br>
+        <div th:if="${#fields.hasErrors('role')}" th:errors="*{role}" style="color: red"></div>
+        <input th:field="*{role}" class="form-control" type="text" name="FIO" placeholder="Введите Должность"> <br>
+
+    </div>
+    <div th:if="${#fields.hasErrors('global')}" style="color: red">
+        <small th:each="err : ${#fields.errors('global')}" th:text="${err}"></small>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-2">Добавить Сотрудника</button>
+    </div>
+</form>
+</body>
+</html>
